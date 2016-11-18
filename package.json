@@ -1,0 +1,19 @@
+{
+  "name": "youtube-clipboard-monitor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "copy-paste": "^1.3.0",
+    "gulp": "^3.9.1",
+    "gulp-traceur": "^0.17.2",
+    "libnotify-ffi": "^1.0.6",
+    "traceur": "0.0.111"
+  },
+  "devDependencies": {},
+  "description": ""
+}
