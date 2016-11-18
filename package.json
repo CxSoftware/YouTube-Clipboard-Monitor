@@ -12,7 +12,8 @@
     "gulp": "^3.9.1",
     "gulp-traceur": "^0.17.2",
     "libnotify-ffi": "^1.0.6",
-    "traceur": "0.0.111"
+    "traceur": "0.0.111",
+    "youtube-dl": "^1.11.1"
   },
   "devDependencies": {},
   "description": ""
