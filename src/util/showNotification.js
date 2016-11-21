@@ -13,21 +13,33 @@ module.exports = url =>
 {
 	(async () =>
 	{
-		const info = await videoinfo (url);
-		const notification = notifications.createNotification ({
+		const actionCallback = a =>
+		{
+			if (a == 'play') play (url);
+		};
+		const data = {
 			summary: 'YouTube' ,
-			body: info.title,
+			body: url,
 			icon: ICON_PATH,
 			actions: {
 				default: '',
 				play: 'Play'
 			}
-		});
+		};
+		const notification1 = notifications
+			.createNotification (data)
+			.on ('action', actionCallback)
+			.push ();
 
-		notification.on ('action' , a =>
-		{
-			if (a == 'play') play (url);
-		});
-		notification.push ();
+		// Get video info
+		const info = await videoinfo (url);
+
+		// Create new notification
+		data.body = info.title;
+		notification1.close ();
+		notifications
+			.createNotification (data)
+			.on ('action', actionCallback)
+			.push ();
 	})();
 };
