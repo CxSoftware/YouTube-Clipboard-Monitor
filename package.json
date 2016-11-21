@@ -12,6 +12,7 @@
     "freedesktop-notifications": "^1.2.2",
     "gulp": "^3.9.1",
     "gulp-traceur": "^0.17.2",
+    "jsonfile": "^2.4.0",
     "traceur": "0.0.111",
     "youtube-dl": "^1.11.1"
   },
