@@ -3,6 +3,7 @@ require ('traceur');
 
 // Dependencies
 const path = require ('path');
+const winston = require ('winston');
 
 // Local
 const clipboard = require ('./util/clipboard');
@@ -13,33 +14,38 @@ const sleep = require ('./util/sleep');
 const SLEEP_TIME = 1000;
 const ICON = path.join (__dirname, '..', 'images', 'play.png');
 
+// Configure log
+winston.add (winston.transports.File, { filename: path.join (__dirname, '..', 'monitor.log') });
+winston.remove (winston.transports.Console);
+
 (async () =>
 {
 	var lastValue;
+	winston.log ('info', 'Starting');
 
 	while (true)
 	{
-		console.log ('Sleeping...');
+		winston.log ('debug', 'Sleeping');
 		await sleep (SLEEP_TIME);
 
 		try
 		{
-			console.log ('Reading clipboard')
+			winston.log ('debug', 'Reading clipboard');
 			let newValue = await clipboard.read ();
 			if (newValue == lastValue)
 				continue;
 
-			console.log ('New value', newValue);
+			winston.log ('info', 'New value', newValue);
 			lastValue = newValue;
 			if (!(/^https?:\/\/(www\.)?youtube\.com\//.test (newValue)))
 				continue;
 
-			console.log ('It\' youtube!');
+			winston.log ('info', 'It\' youtube!');
 			showNotification (newValue);
 		}
 		catch (e)
 		{
-			console.log (e);
+			winston.log ('error', e);
 		}
 	}
 })();
