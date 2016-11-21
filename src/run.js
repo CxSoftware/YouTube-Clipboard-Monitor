@@ -6,7 +6,7 @@ const path = require ('path');
 
 // Local
 const clipboard = require ('./util/clipboard');
-const showNotification = require ('./util/showNotificationExternal');
+const showNotification = require ('./util/showNotification');
 const sleep = require ('./util/sleep');
 
 // Constants

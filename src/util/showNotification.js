@@ -1,5 +1,5 @@
 // Dependencies
-const libnotify = require ('libnotify-ffi');
+const notifications = require ('freedesktop-notifications');
 const path = require ('path');
 
 // Local
@@ -14,19 +14,20 @@ module.exports = url =>
 	(async () =>
 	{
 		const info = await videoinfo (url);
-		libnotify.createNotification ({
-			summary: 'YouTube',
+		const notification = notifications.createNotification ({
+			summary: 'YouTube' ,
 			body: info.title,
 			icon: ICON_PATH,
 			actions: {
-				play: {
-					label: 'Play',
-					callback: () => play (url)
-				},
-				close: {
-					callback: () => { notification = null }
-				}
+				default: '',
+				play: 'Play'
 			}
-		}).push ();
+		});
+
+		notification.on ('action' , a =>
+		{
+			if (a == 'play') play (url);
+		});
+		notification.push ();
 	})();
 };
