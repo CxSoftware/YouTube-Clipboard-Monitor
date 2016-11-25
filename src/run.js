@@ -37,7 +37,7 @@ winston.remove (winston.transports.Console);
 
 			winston.log ('info', 'New value', newValue);
 			lastValue = newValue;
-			if (!(/^https?:\/\/(www\.)?youtube\.com\//.test (newValue)))
+			if (!(/^https?:\/\/((www\.)?youtube\.com|youtu\.be)\//.test (newValue)))
 				continue;
 
 			winston.log ('info', 'It\' youtube!');
