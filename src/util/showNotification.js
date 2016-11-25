@@ -24,6 +24,7 @@ module.exports = url =>
 			summary: 'YouTube' ,
 			body: url,
 			icon: ICON_PATH,
+			timeout: 10000,
 			actions: {
 				default: '',
 				play: 'Play',
