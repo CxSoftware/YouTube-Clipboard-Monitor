@@ -1,9 +1,9 @@
 // Dependencies
 const childProcess = require ('child_process');
 const jsonfile = require ('jsonfile');
-const path = require ('path');
 
-const config = jsonfile.readFileSync (path.join (__dirname, '..', '..', 'config.json'));
+// Local
+const config = require ('./config');
 
 module.exports = url => childProcess.spawn (
 	config.download.terminal,
