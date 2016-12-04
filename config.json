@@ -3,5 +3,9 @@
 	{
 		"terminal": "mate-terminal",
 		"directory": null
+	},
+	"play":
+	{
+		"player": "vlc"
 	}
 }
