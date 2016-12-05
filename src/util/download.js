@@ -1,6 +1,5 @@
 // Dependencies
 const childProcess = require ('child_process');
-const jsonfile = require ('jsonfile');
 
 // Local
 const config = require ('./config');
