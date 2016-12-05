@@ -12,7 +12,6 @@ const sleep = require ('./util/sleep');
 
 // Constants
 const SLEEP_TIME = 1000;
-const ICON = path.join (__dirname, '..', 'images', 'play.png');
 
 // Configure log
 winston.add (winston.transports.File, { filename: path.join (__dirname, '..', 'monitor.log') });
