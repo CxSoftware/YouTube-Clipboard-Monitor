@@ -1,9 +1,10 @@
 const gulp = require ('gulp');
-const traceur = require ('gulp-traceur');
+const babel = require ('gulp-babel');
 
 gulp.task ('default', () =>
-	gulp.src ('src/**/*.js')
-	.pipe (traceur ({
-		asyncFunctions: true
-	}))
-        .pipe (gulp.dest ('dist')));
+	gulp
+		.src ('src/**/*.js')
+		.pipe (babel({
+			presets: ['es2015', 'stage-3']
+		}))
+		.pipe (gulp.dest ('dist')));

@@ -1,5 +1,7 @@
+/*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
+
 // Runtime
-require ('traceur');
+require ('babel-polyfill');
 
 // Dependencies
 const path = require ('path');
