@@ -1,5 +1,5 @@
 // Dependencies
-const copyPaste = require ("copy-paste");
+const copyPaste = require ('copy-paste');
 
 module.exports = {
 	read: () => new Promise ((resolve, error) =>
